@@ -1,0 +1,29 @@
+﻿<Window x:Class="HP3478Ctrl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HP3478A Calibration Controller" Height="250" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="VISA Address:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="AddressTextBox" Text="GPIB0::1::INSTR"  />
+
+        <Label Grid.Column="0" Grid.Row="1" Content="Data:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="DataTextBox" Text="" FontFamily="Courier New" AcceptsReturn="True" TextWrapping="Wrap"/>
+        <WrapPanel Grid.Row="2" Grid.Column="1">
+            <Button x:Name="ReadButton"  Content="Read" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="ReadButton_Click" />
+            <Separator Opacity="0" Width="10"/>
+            <Button x:Name="VerifyButton"  Content="Verify" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="VerifyButton_Click" />
+            <Separator Opacity="0" Width="10"/>
+            <Button x:Name="WriteButton"  Content="Write" HorizontalAlignment="Left"  VerticalAlignment="Top" Click="WriteButton_Click"  />
+            <Separator Opacity="0" Width="10"/>
+        </WrapPanel>
+    </Grid>
+</Window>
