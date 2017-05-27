@@ -23,7 +23,7 @@ namespace HP3478Ctrl {
             InitializeComponent();
         }
         public Task<string> GetCalData() {
-            return Task.Run(() => HP3478A.ReadCalibration());
+            return Task.Run(() => HP3478A.ReadCalibration(AddressTextBox.Text));
         }
         private void EnableButtons(bool state) {
             VerifyButton.IsEnabled = state;
@@ -47,7 +47,7 @@ namespace HP3478Ctrl {
         private void VerifyButton_Click(object sender, RoutedEventArgs e) {
             try {
                 string oldCal = DataTextBox.Text;
-                string currentCal = HP3478A.ReadCalibration();
+                string currentCal = HP3478A.ReadCalibration(AddressTextBox.Text);
                 if (HP3478A.CalibrationsEqual(oldCal, currentCal)) {
                     MessageBox.Show("Calibration matches provided data.", "Calibration Verified",
                         MessageBoxButton.OK, MessageBoxImage.Information);
@@ -72,7 +72,7 @@ namespace HP3478Ctrl {
                         MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     return;
                 }
-                HP3478A.WriteCalibration(calStr);
+                HP3478A.WriteCalibration(AddressTextBox.Text, calStr);
             } catch (FormatException fex) {
                 MessageBox.Show("Formatting error happened: \n\n " + fex.Message, "Format Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);

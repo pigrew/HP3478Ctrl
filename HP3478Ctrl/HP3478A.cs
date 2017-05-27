@@ -40,9 +40,9 @@ namespace HP3478Ctrl {
             }
             return true;
         }
-        public static string ReadCalibration() {
+        public static string ReadCalibration(string addr) {
             string calStr = "";
-            using (IGpibSession dev = GlobalResourceManager.Open("GPIB1::3::INSTR") as IGpibSession) {
+            using (IGpibSession dev = GlobalResourceManager.Open(addr) as IGpibSession) {
 
                 dev.Clear();
                 //dev.RawIO.Write("H0");
@@ -60,7 +60,7 @@ namespace HP3478Ctrl {
             }
             return calStr;
         }
-        public static void WriteCalibration(string calString) {
+        public static void WriteCalibration(string addr, string calString) {
             calString = Regex.Replace(calString, @"\s+", "");
             if (!IsValidCalString(calString))
                 throw new FormatException("Calibration string is not valid.");
