@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ivi.Visa;
 using System.Text.RegularExpressions;
 
-namespace HP3478Ctrl {
+namespace HP3478Ctrl
+{
     class HP3478A {
         public static bool CalibrationsEqual(string a, string b) {
             if (a == null || b == null)
