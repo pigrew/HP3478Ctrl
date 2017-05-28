@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Content="VISA Address:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox Grid.Column="1" Grid.Row="0" x:Name="AddressTextBox" Text="GPIB0::1::INSTR"  />
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="AddressTextBox" Text="GPIB0::23::INSTR"  />
 
         <Label Grid.Column="0" Grid.Row="1" Content="Data:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox Grid.Column="1" Grid.Row="1" x:Name="DataTextBox" Text="" FontFamily="Courier New" AcceptsReturn="True" TextWrapping="Wrap"/>

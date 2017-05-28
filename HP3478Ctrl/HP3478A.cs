@@ -65,7 +65,7 @@ namespace HP3478Ctrl {
             if (!IsValidCalString(calString))
                 throw new FormatException("Calibration string is not valid.");
 
-            using (IGpibSession dev = GlobalResourceManager.Open("GPIB1::3::INSTR") as IGpibSession) {
+            using (IGpibSession dev = GlobalResourceManager.Open(addr) as IGpibSession) {
 
                 dev.Clear();
                 //dev.RawIO.Write("H0");
