@@ -23,8 +23,8 @@ namespace HP3478Ctrl
                 EnableButtons(false);
                 string calString = HP3478A.ReadCalibration(AddressTextBox.Text);
                 DataTextBox.Text = calString;
-            } catch (VisaException exc) {
-                MessageBox.Show("VISA error happened: \n\n " + exc.Message, "VISA Error",
+            } catch (Exception exc) {
+                MessageBox.Show("An exception occured: \n\n " + exc.Message, "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             } finally {
                 EnableButtons(true);
@@ -42,8 +42,8 @@ namespace HP3478Ctrl
                     MessageBox.Show("Calibration DOES NOT match provided data.", "Calibration MISTATCH",
                         MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
-            } catch (VisaException exc) {
-                MessageBox.Show("VISA error happened: \n\n " + exc.Message, "VISA Error",
+            } catch (Exception exc) {
+                MessageBox.Show("An exception occured: \n\n " + exc.Message, "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             } finally {
                 EnableButtons(true);
@@ -63,8 +63,8 @@ namespace HP3478Ctrl
             } catch (FormatException fex) {
                 MessageBox.Show("Formatting error happened: \n\n " + fex.Message, "Format Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
-            } catch (VisaException exc) {
-                MessageBox.Show("VISA error happened: \n\n " + exc.Message, "VISA Error",
+            } catch (Exception exc) {
+                MessageBox.Show("An exception occured: \n\n " + exc.Message, "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
