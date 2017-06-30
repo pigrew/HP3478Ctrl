@@ -12,19 +12,16 @@ namespace HP3478Ctrl
         public MainWindow() {
             InitializeComponent();
         }
-        public Task<string> GetCalData() {
-            return Task.Run(() => HP3478A.ReadCalibration(AddressTextBox.Text));
-        }
         private void EnableButtons(bool state) {
             VerifyButton.IsEnabled = state;
             WriteButton.IsEnabled = state;
             ReadButton.IsEnabled = state;
         }
-        private async void ReadButton_Click(object sender, RoutedEventArgs e) {
+        private void ReadButton_Click(object sender, RoutedEventArgs e) {
             try {
                 DataTextBox.Text = "Reading....";
                 EnableButtons(false);
-                string calString = await GetCalData();
+                string calString = HP3478A.ReadCalibration(AddressTextBox.Text);
                 DataTextBox.Text = calString;
             } catch (VisaException exc) {
                 MessageBox.Show("VISA error happened: \n\n " + exc.Message, "VISA Error",
