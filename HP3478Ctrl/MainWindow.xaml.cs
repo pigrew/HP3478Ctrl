@@ -39,7 +39,7 @@ namespace HP3478Ctrl
                     MessageBox.Show("Calibration matches provided data.", "Calibration Verified",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                 } else {
-                    MessageBox.Show("Calibration DOES NOT match provided data.", "Calibration MISTATCH",
+                    MessageBox.Show("Calibration DOES NOT match provided data.", "Calibration MISMATCH",
                         MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             } catch (Exception exc) {
